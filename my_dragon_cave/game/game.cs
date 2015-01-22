@@ -34,8 +34,8 @@ class game{
 	//****************************
 
 	public game(){//TODO make this not part of the constructor but as an init
-		game_board_init ();
 		pieces_init ();
+		game_board_init ();
 		place_pieces ();
 		init_locate ();
 		cl.prompt ();
@@ -72,7 +72,7 @@ class game{
 					}
 				}
 			}
-		}catch(NullReferenceException e){
+		}catch(NullReferenceException){
 			Console.WriteLine ("The pieces have not be initalized");
 			Environment.Exit (-1);//TODO create exit code for errors
 		}

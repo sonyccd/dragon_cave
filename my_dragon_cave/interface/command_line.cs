@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 
 class command_line{
-	HashSet<string> q_syns = new HashSet<string> {"q","Q","quit","Quit"};//things someone might
-	//use as a quit command
+	HashSet<string> q_syns = new HashSet<string> {"q","Q","quit","Quit"};
 	Dictionary<string,Action> ops=new Dictionary<string,Action>()
 	{
 		{"F",operations.move_forward},
@@ -25,7 +24,7 @@ class command_line{
 		"Try the following commands:\n" +
 		"Move (F)orward, Turn (L)eft, Turn (R)ight,\n" +
 		"(G)rab the Gold, (A)hoot the Arrow, (C)limb out.\n" +
-		"(Q)uit the game, Use (X) to cheat and\n" +
+		"(Q)uit the game, Use (X) for map and\n" +
 		"use (S) for user stats\n";
 
 	public command_line(){}

@@ -15,6 +15,8 @@ Global
 		{D06870F3-59D9-4149-8DC3-2A66009620D8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = my_dragon_cave\my_dragon_cave.csproj
+		Policies = $0
+		$0.VersionControlPolicy = $1
+		$1.inheritsSet = Mono
 	EndGlobalSection
 EndGlobal

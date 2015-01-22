@@ -28,10 +28,12 @@ class board{
 
 	public void board_update(){
 		//TODO make the update one operation
-		//TODO make this run once as a event call 
+		//TODO make this run once as a event call
 		foreach(square s in game.pieces){
 			game_board[s.X,s.Y]="["+s.Id+"]";
-			game_board[s.Px,s.Py]="[ ]";
+			if (s.Id.Equals (game.USER_ID)) {
+				game_board [s.Px, s.Py] = "[ ]";
+			}
 		}
 	}
 

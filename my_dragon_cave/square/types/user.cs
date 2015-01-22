@@ -54,20 +54,23 @@ class user:square{
 	//TODO make this more OOD please, it hurts to look at
 
 	public void move(int x,int y){
-		//TODO use enents to update px and py
+		//TODO use events to update px and py
 		x = x + base.X;
 		y = y + base.Y;
+		if(x>game.BOARD_SIZE-1||x<0||y>game.BOARD_SIZE-1||y<0){
+			Console.WriteLine ("You hit a wall");
+			return;
+		}
 		int hash = ((game.BOARD_SIZE * x) + y);
 		if(game.locate.ContainsKey(hash)){
 			game.locate [hash].land_on();
-		}else{
-			base.Px=base.X;
-			base.Py = base.Y;
-			base.X = x;
-			base.Y = y;
 		}
+		base.Px=base.X;
+		base.Py = base.Y;
+		base.X = x;
+		base.Y = y;
 	}
-		
+				
 	public override void land_on(){}
 
 	public bool fire_arrow(string direction){//fire the arrow into some direction
