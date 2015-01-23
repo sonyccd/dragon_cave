@@ -29,10 +29,11 @@ class board{
 	public void board_update(){
 		//TODO make the update one operation
 		//TODO make this run once as a event call
+		game_board[game.you.Px,game.you.Py]="[ ]";//clear users last plase
 		foreach(square s in game.pieces){
-			game_board[s.X,s.Y]="["+s.Id+"]";
+			game_board[s.X,s.Y]="["+s.Id+"]";//set pieces
 		}
-		game_board[game.you.X,game.you.Y]="["+game.you.Id+"]";
+		game_board[game.you.X,game.you.Y]="["+game.you.Id+"]";//set user
 	}
 
 	public dynamic get_piece(int x,int y){

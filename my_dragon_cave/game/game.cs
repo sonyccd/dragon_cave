@@ -69,6 +69,8 @@ class game{
 					pieces[count].Py=j;
 					count++;
 					if(count>=pieces.Count){
+						you.X=3;
+						you.Y=3;
 						return;
 					}
 				}
