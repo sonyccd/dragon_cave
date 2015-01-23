@@ -31,10 +31,8 @@ class board{
 		//TODO make this run once as a event call
 		foreach(square s in game.pieces){
 			game_board[s.X,s.Y]="["+s.Id+"]";
-			if (s.Id.Equals (game.USER_ID)) {
-				game_board [s.Px, s.Py] = "[ ]";
-			}
 		}
+		game_board[game.you.X,game.you.Y]="["+game.you.Id+"]";
 	}
 
 	public dynamic get_piece(int x,int y){

@@ -47,7 +47,6 @@ class game{
 		for(i=0;i<NUM_PIT;i++){pieces.Add (new pit (PIT_ID));}
 		for(i=0;i<NUM_GOLD;i++){pieces.Add (new gold (GOLD_ID));}
 		for(i=0;i<NUM_ENTRANCE;i++){pieces.Add (new entrance (ENTRANCE_ID));}
-		for(i=0;i<NUM_USER;i++){pieces.Add (you);}
 	}
 
 	void init_locate(){//this creates a simple lookup for how to react to landing
@@ -62,10 +61,12 @@ class game{
 		try{
 			//TODO place the pieces in a random spot not overlapping
 			int count=0;
-			for(int i=0;i<BOARD_SIZE;i++){
+			for(int i=1;i<BOARD_SIZE;i++){
 				for(int j=0;j<BOARD_SIZE;j++){
 					pieces[count].X=i;
 					pieces[count].Y=j;
+					pieces[count].Px=i;
+					pieces[count].Py=j;
 					count++;
 					if(count>=pieces.Count){
 						return;
