@@ -32,10 +32,11 @@ class operations{
 	}
 	public static void climb_up(){
 		Console.WriteLine ("up");
+		game.you.climb ();
 	}
 	public static void grab(){
 		Console.WriteLine ("grab");
-		//TODO need some operation for grab
+		game.you.grab ();
 	}
 	public static void debug(){
 		game.dungeon.show_board ();

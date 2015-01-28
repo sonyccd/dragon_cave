@@ -10,7 +10,4 @@ class gold:square{
 	public override void land_on(){
 		Console.WriteLine ("The light of your torch is reflecting off something...");
 	}
-	public void grab(){
-		base.Id=" ";
-	}
 }

@@ -63,9 +63,9 @@ class user:square{
 				direction++;
 			}
 		}else{
-			if(direction-1<0){
+			if (direction - 1 < 0) {
 				direction = 3;
-			}else{
+			} else {
 				direction--;
 			}
 		}
@@ -115,8 +115,27 @@ class user:square{
 		int hash = ((game.BOARD_SIZE * base.X) + base.Y);
 		if(game.locate.ContainsKey(hash)){
 			if(game.locate[hash].GetType()==typeof(gold)){
-
+				gold++;
+				Console.WriteLine ("You got the Gold!");
 			}else{
+				Console.WriteLine ("No gold here");
+				return;
+			}
+		}else{
+			return;
+		}
+	}
+
+	public void climb(){
+		int hash = ((game.BOARD_SIZE * base.X) + base.Y);
+		if(game.locate.ContainsKey(hash)){
+			if (game.locate [hash].GetType () == typeof(entrance) && gold > 0) {
+				Console.WriteLine ("You got out!!");
+				Environment.Exit (0);
+			}else if(game.locate[hash].GetType()==typeof(entrance)&& gold<=0){
+				Console.WriteLine ("You need to go back and get the gold!");
+			}else{
+				Console.WriteLine ("Not the way out");
 				return;
 			}
 		}else{

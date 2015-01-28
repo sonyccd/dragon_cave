@@ -89,8 +89,6 @@ class game{
 		if(!you.Alive){
 			Console.WriteLine ("You died");
 			Environment.Exit (0);
-		}else if(you.Gold>0){
-			Console.WriteLine ("You got the gold!");
 		}
 	}
 }

@@ -9,7 +9,7 @@ class command_line{
 		{"F",operations.move_forward},
 		{"L",operations.move_left},
 		{"R",operations.move_right},
-		{"U",operations.climb_up},
+		{"C",operations.climb_up},
 		{"D",operations.climb_down},
 		{"X",operations.debug},
 		//{"A",operations.arrow},
