@@ -7,7 +7,6 @@ class command_line{
 	Dictionary<string,Action> ops=new Dictionary<string,Action>()
 	{
 		{"F",operations.move_forward},
-		{"B",operations.move_backward},
 		{"L",operations.move_left},
 		{"R",operations.move_right},
 		{"U",operations.climb_up},
@@ -32,7 +31,7 @@ class command_line{
 	public void prompt(){
 		Console.Write (intro);
 		while(true){
-			Console.Write ("\n{"+game.you.Direction+"}>");
+			Console.Write ("\n{"+game.you.get_direction()+"}>");
 			string temp = Console.ReadLine();
 			if(q_syns.Contains(temp)){
 				break;

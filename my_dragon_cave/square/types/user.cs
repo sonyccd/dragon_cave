@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using C5;
+using System.Resources;
+using System.Collections.Generic;
 
 class user:square{
 	bool alive=true;
 	bool in_pit=false;
 	int arrows=1;
-	string direction=@"/\";
+	int direction=0;
+	static string[] directions=new string[]{@"/\",">",@"\/","<"};
+	
 	int gold=0;
 
 	public user(){}
@@ -33,7 +37,7 @@ class user:square{
 		}
 	}
 
-	public string Direction{
+	public int Direction{
 		get{
 			return direction;
 		}
@@ -51,12 +55,42 @@ class user:square{
 		}
 	}
 
+	public void rotate(bool r){
+		if(r){
+			if(direction+1>directions.Length-1){
+				direction = 0;
+			}else{
+				direction++;
+			}
+		}else{
+			if(direction-1<0){
+				direction = 3;
+			}else{
+				direction--;
+			}
+		}
+	}
+
+	public int[] direction_to_move(){
+		if(direction==0){
+			return new int[]{ -1, 0 };
+		}else if(direction==2){
+			return new int[]{ 1, 0 };
+		}else if(direction==3){
+			return new int[]{ 0,-1 };
+		}else if(direction==1){
+			return new int[]{ 0, 1 };
+		}else{
+			return new int[]{ 0, 0 };
+		}
+	}
+
 	//TODO make this more OOD please, it hurts to look at
 
-	public void move(int x,int y){
-		//TODO use events to update px and py
-		x = x + base.X;
-		y = y + base.Y;
+	public void move(){
+		int[] temp=direction_to_move ();
+		int x = temp[0] + base.X;
+		int y = temp[1] + base.Y;
 		if(x>game.BOARD_SIZE-1||x<0||y>game.BOARD_SIZE-1||y<0){
 			Console.WriteLine ("You hit a wall");
 			return;
@@ -77,6 +111,27 @@ class user:square{
 		return false;
 	}
 
+	public void grab(){
+		int hash = ((game.BOARD_SIZE * base.X) + base.Y);
+		if(game.locate.ContainsKey(hash)){
+			if(game.locate[hash].GetType()==typeof(gold)){
+
+			}else{
+				return;
+			}
+		}else{
+			return;
+		}
+	}
+
+	public string get_direction(){
+		if(direction>3){
+			Console.WriteLine ("Error:"+direction);
+			Environment.Exit (0);
+		}
+		return directions [direction];
+	}
+
 	public string[] toString(){//return an array of stats
 		ArrayList<string> temp=new ArrayList<string>();
 		foreach(string v in base.toString()){
@@ -85,7 +140,7 @@ class user:square{
 		temp.Add ("Alive: "+alive.ToString());
 		temp.Add ("In Pit: "+in_pit.ToString());
 		temp.Add ("Arrows: "+arrows.ToString());
-		temp.Add ("Direction: "+direction);
+		temp.Add ("Direction: "+directions[direction]);
 		temp.Add ("Gold: "+gold.ToString());
 		return temp.ToArray ();
 	}

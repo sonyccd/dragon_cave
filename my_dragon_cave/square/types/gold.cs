@@ -11,6 +11,6 @@ class gold:square{
 		Console.WriteLine ("The light of your torch is reflecting off something...");
 	}
 	public void grab(){
-
+		base.Id=" ";
 	}
 }
