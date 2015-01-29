@@ -10,7 +10,6 @@ class command_line{
 		{"L",operations.move_left},
 		{"R",operations.move_right},
 		{"C",operations.climb_up},
-		{"D",operations.climb_down},
 		{"X",operations.debug},
 		{"A",operations.arrow},
 		{"S",operations.stats},

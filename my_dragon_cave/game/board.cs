@@ -35,8 +35,8 @@ class board{
 		}
 		game_board[game.you.X,game.you.Y]="["+game.you.Id+"]";//set user
 	}
-
-	public dynamic get_piece(int x,int y){
+	//O flaming cat poo why is this dynamic, I have no idea why I did that!
+	public string get_piece(int x,int y){
 		return game_board [x, y];
 	}
 }

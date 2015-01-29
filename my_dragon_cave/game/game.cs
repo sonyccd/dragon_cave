@@ -56,22 +56,22 @@ class game{
 			}
 		}
 	}
-
+		
 	void place_pieces(){
+		Random seed=new Random();
 		try{
-			//TODO place the pieces in a random spot not overlapping
+			Console.WriteLine("Building Game Board...");
 			int count=0;
-			for(int i=1;i<BOARD_SIZE;i++){
-				for(int j=0;j<BOARD_SIZE;j++){
-					pieces[count].X=i;
-					pieces[count].Y=j;
-					pieces[count].Px=i;
-					pieces[count].Py=j;
-					count++;
-					if(count>=pieces.Count){
-						you.X=3;
-						you.Y=3;
-						return;
+			while(count<pieces.Count){
+				while(true){
+					int xt=seed.Next(0,BOARD_SIZE-1);
+					int yt=seed.Next(0,BOARD_SIZE-1);
+					if(dungeon.get_piece(xt,yt)=="[ ]"){
+						pieces[count].X=xt;
+						pieces[count].Y=yt;
+						dungeon.board_update();
+						count++;
+						break;
 					}
 				}
 			}

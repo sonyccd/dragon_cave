@@ -108,6 +108,10 @@ class user:square{
 	public override void land_on(){}
 
 	public void fire_arrow(){//fire the arrow into some direction
+		if(arrows<=0){
+			Console.WriteLine ("Your out of arrows");
+			return;
+		}
 		try{
 			if(direction==0||direction==2){
 				if(direction==0){
@@ -120,7 +124,6 @@ class user:square{
 							}
 						}
 					}
-					Console.WriteLine ("You missed1");
 				}else{
 					for(int i=base.X;i<game.BOARD_SIZE;i++){
 						int hash = ((game.BOARD_SIZE * i) + base.Y);
@@ -131,7 +134,6 @@ class user:square{
 							}
 						}
 					}
-					Console.WriteLine ("You missed2");
 				}
 			}else{
 				if(direction==3){
@@ -144,7 +146,6 @@ class user:square{
 							}
 						}
 					}
-					Console.WriteLine ("You missed3");
 				}else{
 					for(int i=base.Y;i<game.BOARD_SIZE;i++){
 						int hash = ((game.BOARD_SIZE * base.X) + i);
@@ -155,15 +156,17 @@ class user:square{
 							}
 						}
 					}
-					Console.WriteLine("You missed4");
 				}
 			}
+			Console.WriteLine("You missed");
+			arrows--;
 		}catch(KeyNotFoundException){
 			Console.WriteLine ("You missed");
 		}
 	}
 
 	void kill_dragon(int hash){
+		arrows--;
 		Console.WriteLine ("You hear the rar of a dragon in the distance...");
 		Console.WriteLine ("Silence");
 		game.pieces.Remove (game.locate [hash]);
