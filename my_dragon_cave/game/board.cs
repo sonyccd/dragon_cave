@@ -28,7 +28,7 @@ class board{
 	public void board_update(){
 		//TODO make the update one operation
 		//TODO make this run once as a event call
-		game_board[game.you.Px,game.you.Py]="[ ]";//clear users last plase
+		init_board ();//clear baord for udate
 		foreach(square s in game.pieces){
 			game_board[s.X,s.Y]="["+s.Id+"]";//set pieces
 		}

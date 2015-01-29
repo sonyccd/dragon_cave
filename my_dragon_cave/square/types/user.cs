@@ -8,7 +8,7 @@ class user:square{
 	bool alive=true;
 	bool in_pit=false;
 	int arrows=1;
-	int direction=0;
+	int direction=1;
 	static string[] directions=new string[]{@"/\",">",@"\/","<"};
 	
 	int gold=0;
@@ -167,8 +167,8 @@ class user:square{
 
 	void kill_dragon(int hash){
 		arrows--;
-		Console.WriteLine ("You hear the rar of a dragon in the distance...");
-		Console.WriteLine ("Silence");
+		Console.WriteLine ("You hear the roar of a dragon in the distance...");
+		Console.WriteLine ("and then silence...");
 		game.pieces.Remove (game.locate [hash]);
 		game.locate.Remove (hash);
 	}

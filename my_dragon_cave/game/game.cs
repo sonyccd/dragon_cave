@@ -68,6 +68,10 @@ class game{
 					if(dungeon.get_piece(xt,yt)=="[ ]"){
 						pieces[count].X=xt;
 						pieces[count].Y=yt;
+						if(pieces[count].Id==ENTRANCE_ID){
+							you.X=pieces[count].X;
+							you.Y=pieces[count].Y;
+						}
 						dungeon.board_update();
 						count++;
 						break;
