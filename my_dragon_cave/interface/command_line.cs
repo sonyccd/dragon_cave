@@ -13,22 +13,46 @@ class command_line{
 		{"X",operations.debug},
 		{"A",operations.arrow},
 		{"S",operations.stats},
-		{"G",operations.grab}
+		{"G",operations.grab},
+		{"H",operations.help}
 	};
 
-	string intro="Welcome to Dragon Cave!\n" +
-		"Try to find the gold and return here to climb back out.\n" +
-		"You have 1 arrow that you can shoot.\n" +
-		"Try the following commands:\n" +
+	string intro ="You wake up, it's dark, you hear the drip of water in the distance.\n" +
+	              "You grab a tourch and light it.\n" +
+	              "To your suprice you fell into some kind of cave.\n" +
+	              "A loud ROAR!!!! comes from the distance.\n" +
+	              "A dragon is some where in this cave.\n" +
+	              "Reaching for your bow you only find one arrow thats not broken.\n" +
+	              "Find the gold, and get out before you find the dragon!!!!\n"+
+				  "Welcome to...\n";
+
+	string user_moves="Commands:\n" +
 		"Move (F)orward, Turn (L)eft, Turn (R)ight,\n" +
-		"(G)rab the Gold, (A)hoot the Arrow, (C)limb out.\n" +
-		"(Q)uit the game, Use (X) for map and\n" +
-		"use (S) for user stats\n";
+		"(G) grab the Gold, (A) shoot the Arrow, (C) climb out.\n" +
+		"(Q) quit the game, Use (X) for map and\n" +
+		"use (S) for user stats\n"+
+		"\n"+
+		"GOOD LUCK!\n";
 
 	public command_line(){}
 
+	public void logo(){
+		Console.WriteLine(@"  _______ _             _____                  ");
+		Console.WriteLine(@" |__   __| |           / ____|   /\            ");
+		Console.WriteLine(@"    | |  | |__   ___  | |       /  \__   _____ ");
+		Console.WriteLine(@"    | |  | '_ \ / _ \ | |      / /\ \ \ / / _ \");
+		Console.WriteLine(@"    | |  | | | |  __/ | |____ / ____ \ V /  __/");
+		Console.WriteLine(@"    |_|  |_| |_|\___|  \_____/_/    \_\_/ \___|");
+		Console.WriteLine ();
+	}
+
 	public void prompt(){
 		Console.Write (intro);
+		next_scene ();
+		logo ();
+		next_scene ();
+		Console.WriteLine (user_moves);
+		next_scene ();
 		while(true){
 			Console.Write ("\n{"+game.you.get_direction()+"}>");
 			string temp = Console.ReadLine();
@@ -41,12 +65,20 @@ class command_line{
 		}
 	}
 
+	public void next_scene(){
+		Console.WriteLine ("\nNext(N)...");
+		while(Console.ReadLine()!="N"){}
+		System.Console.Clear ();
+		return;
+	}
+
 	void interpret(string command){//runs comands in the dictionay
 		try{
 			ops [command]();
 			game.status();
 		}catch(KeyNotFoundException ){
 			Console.WriteLine("That is not a valid move");
+			Console.WriteLine ("type H for help");
 		}
 	}
 }

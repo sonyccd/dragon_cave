@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 class game{
 
 	//TODO have some kind of config file that can be read it to get rid of static use
-	//TODO shit, i got the x anf y axis mixed up
+	//TODO craping squids, i got the x anf y axis mixed up
 	//****************************
 	//CONFIG
 	public static int BOARD_SIZE=4;
@@ -60,7 +60,6 @@ class game{
 	void place_pieces(){
 		Random seed=new Random();
 		try{
-			Console.WriteLine("Building Game Board...");
 			int count=0;
 			while(count<pieces.Count){
 				while(true){

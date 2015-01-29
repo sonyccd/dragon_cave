@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using C5;
 
 class operations{
 	//TODO convert to event driven system
@@ -49,5 +50,18 @@ class operations{
 		Console.WriteLine ("fired arrow");
 		game.you.fire_arrow ();
 	}
+	public static void help(){
+		string help="Commands:\n"+
+			"F: Move forward\n"+
+			"L: Turn left\n"+
+			"R: TUrn right\n"+
+			"G: Grab gold\n"+
+			"A: Shoot arrow\n"+
+			"C: Climb out\n"+
+			"S: User stats\n"+
+			"X: Map\n"+
+			"Q: Quit\n";
+		Console.WriteLine (help);
+	}
 }
-
+	
