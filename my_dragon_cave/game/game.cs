@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 class game{
 
 	//TODO have some kind of config file that can be read it to get rid of static use
-
+	//TODO shit, i got the x anf y axis mixed up
 	//****************************
 	//CONFIG
 	public static int BOARD_SIZE=4;

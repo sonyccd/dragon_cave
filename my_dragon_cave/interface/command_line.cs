@@ -12,7 +12,7 @@ class command_line{
 		{"C",operations.climb_up},
 		{"D",operations.climb_down},
 		{"X",operations.debug},
-		//{"A",operations.arrow},
+		{"A",operations.arrow},
 		{"S",operations.stats},
 		{"G",operations.grab}
 	};
@@ -46,7 +46,7 @@ class command_line{
 		try{
 			ops [command]();
 			game.status();
-		}catch(KeyNotFoundException e){
+		}catch(KeyNotFoundException ){
 			Console.WriteLine("That is not a valid move");
 		}
 	}

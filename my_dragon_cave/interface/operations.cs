@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 class operations{
 	//TODO convert to event driven system
@@ -43,6 +44,10 @@ class operations{
 	}
 	public static void stats(){
 		game.you.toScreen ();
+	}
+	public static void arrow(){
+		Console.WriteLine ("fired arrow");
+		game.you.fire_arrow ();
 	}
 }
 

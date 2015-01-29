@@ -57,7 +57,7 @@ class user:square{
 
 	public void rotate(bool r){
 		if(r){
-			if(direction+1>directions.Length-1){
+			if(direction+1>=directions.Length){
 				direction = 0;
 			}else{
 				direction++;
@@ -107,8 +107,67 @@ class user:square{
 				
 	public override void land_on(){}
 
-	public bool fire_arrow(string direction){//fire the arrow into some direction
-		return false;
+	public void fire_arrow(){//fire the arrow into some direction
+		try{
+			if(direction==0||direction==2){
+				if(direction==0){
+					for(int i=base.X;i>=0;i--){
+						int hash = ((game.BOARD_SIZE * i) + base.Y);
+						if (game.locate.ContainsKey (hash)) {
+							if (game.locate [hash].GetType () == typeof(dragon)) {
+								kill_dragon (hash);
+								return;
+							}
+						}
+					}
+					Console.WriteLine ("You missed1");
+				}else{
+					for(int i=base.X;i<game.BOARD_SIZE;i++){
+						int hash = ((game.BOARD_SIZE * i) + base.Y);
+						if (game.locate.ContainsKey (hash)) {
+							if (game.locate [hash].GetType () == typeof(dragon)) {
+								kill_dragon (hash);
+								return;
+							}
+						}
+					}
+					Console.WriteLine ("You missed2");
+				}
+			}else{
+				if(direction==3){
+					for(int i=base.Y;i>=0;i--){
+						int hash = ((game.BOARD_SIZE * base.X) + i);
+						if (game.locate.ContainsKey (hash)) {
+							if (game.locate [hash].GetType () == typeof(dragon)) {
+								kill_dragon (hash);
+								return;
+							}
+						}
+					}
+					Console.WriteLine ("You missed3");
+				}else{
+					for(int i=base.Y;i<game.BOARD_SIZE;i++){
+						int hash = ((game.BOARD_SIZE * base.X) + i);
+						if (game.locate.ContainsKey (hash)) {
+							if (game.locate [hash].GetType () == typeof(dragon)) {
+								kill_dragon (hash);
+								return;
+							}
+						}
+					}
+					Console.WriteLine("You missed4");
+				}
+			}
+		}catch(KeyNotFoundException){
+			Console.WriteLine ("You missed");
+		}
+	}
+
+	void kill_dragon(int hash){
+		Console.WriteLine ("You hear the rar of a dragon in the distance...");
+		Console.WriteLine ("Silence");
+		game.pieces.Remove (game.locate [hash]);
+		game.locate.Remove (hash);
 	}
 
 	public void grab(){
@@ -144,10 +203,6 @@ class user:square{
 	}
 
 	public string get_direction(){
-		if(direction>3){
-			Console.WriteLine ("Error:"+direction);
-			Environment.Exit (0);
-		}
 		return directions [direction];
 	}
 
