@@ -1,6 +1,22 @@
-# dragon_cave
-I will do this once the first version works
-
-Ok so if you are looking at the code I am sorry, I got busy and had to turn this in for a class so it is a bit of a mess right now.  I will be going back and fixing lost of it.  With some hope I am going to add a map builder and a networking feature.
-
-![alt tag](http://i3.kym-cdn.com/photos/images/original/000/234/765/b7e.jpg)
+# dragon_cave 
+##Introduction 
+  A simple text based adventure similar to Zork.
+##Goal 
+  The goal of dragon cave is to find the gold in the cave, grab it, and get back to the entrance without finding the dragon.
+##How to play 
+  The game starts asking for your name.
+  Then the intro is played with the instructions.
+  Type N to go to the next screen
+  **NOTE: all commands must be in capital letters**
+###Commands
+| Key | Command |
+| --- | ------ |
+| F | Move forward |
+| L | Turn left |
+| R | Turn right |
+| G | Grab gold |
+| A | Shoot arrow |
+| C | Climb out |
+| S | User stats |
+| X | Map |
+| Q | Quit| 
