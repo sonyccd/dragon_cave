@@ -91,8 +91,7 @@ class user:square{
 		int[] temp=direction_to_move ();
 		int x = temp[0] + base.X;
 		int y = temp[1] + base.Y;
-		if(x>game.BOARD_SIZE-1||x<0||y>game.BOARD_SIZE-1||y<0){
-			Console.WriteLine ("You hit a wall");
+		if(!on_map(x,y)){
 			return;
 		}
 		int hash = ((game.BOARD_SIZE * x) + y);
@@ -103,8 +102,17 @@ class user:square{
 		base.Py = base.Y;
 		base.X = x;
 		base.Y = y;
+		prox ();
 	}
 				
+	public bool on_map(int x,int y){
+		if(x>game.BOARD_SIZE-1||x<0||y>game.BOARD_SIZE-1||y<0){
+			Console.WriteLine ("You hit a wall");
+			return false;
+		}
+		return true;
+	}
+
 	public override void land_on(){}
 
 	public void fire_arrow(){//fire the arrow into some direction
@@ -207,6 +215,52 @@ class user:square{
 
 	public string get_direction(){
 		return directions [direction];
+	}
+
+	public void prox(){
+		int hash;
+		if (on_map (base.X + 1, base.Y)) {
+			hash = ((game.BOARD_SIZE * (base.X+1)) + base.Y);
+			if(!game.locate.ContainsKey(hash)){return;}
+			if(game.locate[hash].GetType()==typeof(dragon)){
+				Console.WriteLine ("Something smells...1");
+			}else if(game.locate[hash].GetType()==typeof(pit)){
+				Console.WriteLine ("I feel a breeze...1");
+			}else{
+				Console.WriteLine ("test1");
+			}
+		}else if(on_map (base.X - 1, base.Y)){
+			hash = ((game.BOARD_SIZE * (base.X-1)) + base.Y);
+			if(!game.locate.ContainsKey(hash)){return;}
+			if(game.locate[hash].GetType()==typeof(dragon)){
+				Console.WriteLine ("Something smells...2");
+			}else if(game.locate[hash].GetType()==typeof(pit)){
+				Console.WriteLine ("I feel a breeze...2");
+			}else{
+				Console.WriteLine ("test2");
+			}
+		}else if(on_map (base.X, base.Y+1)){
+			hash = ((game.BOARD_SIZE * base.X) + (base.Y+1));
+			if(!game.locate.ContainsKey(hash)){return;}
+			if(game.locate[hash].GetType()==typeof(dragon)){
+				Console.WriteLine ("Something smells...3");
+
+			}else if(game.locate[hash].GetType()==typeof(pit)){
+				Console.WriteLine ("I feel a breeze...3");
+			}else{
+				Console.WriteLine ("test3");
+			}
+		}else if(on_map (base.X , base.Y-1)){
+			hash = ((game.BOARD_SIZE * base.X) + (base.Y-1));
+			if(!game.locate.ContainsKey(hash)){return;}
+			if(game.locate[hash].GetType()==typeof(dragon)){
+				Console.WriteLine ("Something smells...4");
+			}else if(game.locate[hash].GetType()==typeof(pit)){
+				Console.WriteLine ("I feel a breeze...4");
+			}else{
+				Console.WriteLine ("test4");
+			}
+		}
 	}
 
 	public string[] toString(){//return an array of stats

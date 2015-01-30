@@ -47,6 +47,8 @@ class command_line{
 	}
 
 	public void prompt(){
+		Console.WriteLine ("Whats your name?");
+		game.you.Name = Console.ReadLine ();
 		Console.Write (intro);
 		next_scene ();
 		logo ();
@@ -82,3 +84,4 @@ class command_line{
 		}
 	}
 }
+
