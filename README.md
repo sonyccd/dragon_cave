@@ -1,4 +1,4 @@
-# dragon_cave 
+# The Cave 
 ##Introduction 
   A simple text based adventure similar to Zork.
 ##Goal 
