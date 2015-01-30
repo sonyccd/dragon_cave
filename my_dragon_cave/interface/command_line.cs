@@ -78,6 +78,8 @@ class command_line{
 		try{
 			ops [command]();
 			game.status();
+			Console.WriteLine();
+			game.you.prox();
 		}catch(KeyNotFoundException ){
 			Console.WriteLine("That is not a valid move");
 			Console.WriteLine ("type H for help");
