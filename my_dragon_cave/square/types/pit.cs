@@ -8,7 +8,7 @@ class pit:square{
 	}
 
 	public override void land_on(){
-		Console.WriteLine ("Fell into a pit");
+		Console.WriteLine (game.you.Name+" fell into a pit");
 		game.you.Alive = false;
 	}
 }

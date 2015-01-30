@@ -12,8 +12,8 @@ class entrance:square{
 	}
 
 	public void climb(){
-		Console.WriteLine("You climbed out of the entrace.\n" +
-			"You feel warm sunlight on your face.\n" +
+		Console.WriteLine(Name+" climbeds out of the entrace\n" +
+			"and feels the warm sunlight.\n" +
 			"You made it out.");
 		Environment.Exit (0);
 	}

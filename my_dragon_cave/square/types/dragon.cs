@@ -8,7 +8,7 @@ class dragon:square{
 	}
 
 	public override void land_on(){
-		Console.WriteLine ("You found the dragon");
+		Console.WriteLine (game.you.Name+" found the dragon");
 		game.you.Alive = false;
 	}
 }

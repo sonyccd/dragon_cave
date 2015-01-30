@@ -17,14 +17,7 @@ class command_line{
 		{"H",operations.help}
 	};
 
-	string intro ="You wake up, it's dark, you hear the drip of water in the distance.\n" +
-	              "You grab a tourch and light it.\n" +
-	              "To your suprice you fell into some kind of cave.\n" +
-	              "A loud ROAR!!!! comes from the distance.\n" +
-	              "A dragon is some where in this cave.\n" +
-	              "Reaching for your bow you only find one arrow thats not broken.\n" +
-	              "Find the gold, and get out before you find the dragon!!!!\n"+
-				  "Welcome to...\n";
+	string intro;
 
 	string user_moves="Commands:\n" +
 		"Move (F)orward, Turn (L)eft, Turn (R)ight,\n" +
@@ -46,9 +39,22 @@ class command_line{
 		Console.WriteLine ();
 	}
 
+	void set_intro(){
+		intro =game.you.Name+" wakes up, it's dark, "+game.you.Name+" hears a drip of water in the distance.\n" +
+			game.you.Name+" grabs a tourch and lights it.\n" +
+			game.you.Name+" was in some kind of cave.\n" +
+			"A loud ROAR!!!! comes from the distance.\n" +
+			"A dragon is some where in this cave.\n" +
+			"Reaching for the bow "+game.you.Name+" finds only one arrow thats not broken.\n" +
+			"Find the gold, and get out before you find the dragon!!!!\n"+
+			"Welcome to...\n";
+	}
+
 	public void prompt(){
 		Console.WriteLine ("Whats your name?");
 		game.you.Name = Console.ReadLine ();
+		set_intro ();
+		next_scene ();
 		Console.Write (intro);
 		next_scene ();
 		logo ();

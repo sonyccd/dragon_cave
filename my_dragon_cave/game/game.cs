@@ -90,7 +90,7 @@ class game{
 
 	public static void status(){
 		if(!you.Alive){
-			Console.WriteLine ("You died");
+			Console.WriteLine (you.Name+" died");
 			Environment.Exit (0);
 		}
 	}

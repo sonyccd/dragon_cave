@@ -92,7 +92,7 @@ class user:square{
 		int x = temp[0] + base.X;
 		int y = temp[1] + base.Y;
 		if(!on_map(x,y)){
-			Console.WriteLine ("You hit a wall");
+			Console.WriteLine (Name+" hits a wall");
 			return;
 		}
 		int hash = ((game.BOARD_SIZE * x) + y);
@@ -116,7 +116,7 @@ class user:square{
 
 	public void fire_arrow(){//fire the arrow into some direction
 		if(arrows<=0){
-			Console.WriteLine ("Your out of arrows");
+			Console.WriteLine (Name+" is out of arrows");
 			return;
 		}
 		try{
@@ -165,16 +165,16 @@ class user:square{
 					}
 				}
 			}
-			Console.WriteLine("You missed");
+			Console.WriteLine(Name+" you missed");
 			arrows--;
 		}catch(KeyNotFoundException){
-			Console.WriteLine ("You missed");
+			Console.WriteLine (Name+" you missed");
 		}
 	}
 
 	void kill_dragon(int hash){
 		arrows--;
-		Console.WriteLine ("You hear the roar of a dragon in the distance...");
+		Console.WriteLine (Name+" hears a roar of a dragon in the distance...");
 		Console.WriteLine ("and then silence...");
 		game.pieces.Remove (game.locate [hash]);
 		game.locate.Remove (hash);
@@ -185,7 +185,7 @@ class user:square{
 		if(game.locate.ContainsKey(hash)){
 			if(game.locate[hash].GetType()==typeof(gold)){
 				gold++;
-				Console.WriteLine ("You got the Gold!");
+				Console.WriteLine (Name+" got the Gold!");
 			}else{
 				Console.WriteLine ("No gold here");
 				return;
@@ -199,10 +199,10 @@ class user:square{
 		int hash = ((game.BOARD_SIZE * base.X) + base.Y);
 		if(game.locate.ContainsKey(hash)){
 			if (game.locate [hash].GetType () == typeof(entrance) && gold > 0) {
-				Console.WriteLine ("You got out!!");
+				Console.WriteLine (Name+" you got out!!");
 				Environment.Exit (0);
 			}else if(game.locate[hash].GetType()==typeof(entrance)&& gold<=0){
-				Console.WriteLine ("You need to go back and get the gold!");
+				Console.WriteLine (Name+" needs to go back and get the gold!");
 			}else{
 				Console.WriteLine ("Not the way out");
 				return;
@@ -228,7 +228,7 @@ class user:square{
 					dr = false;
 				}
 				if (game.locate [hash].GetType () == typeof(pit)&&pi) {
-					Console.WriteLine ("I feel a breeze...");
+					Console.WriteLine (Name+" feels a breeze...");
 					pi = false;
 				}
 			}
@@ -241,7 +241,7 @@ class user:square{
 					dr = false;
 				}
 				if (game.locate [hash].GetType () == typeof(pit)&&pi) {
-					Console.WriteLine ("I feel a breeze...");
+					Console.WriteLine (Name+" feels a breeze...");
 					pi = false;
 				}
 			}
@@ -254,7 +254,7 @@ class user:square{
 					dr = false;
 				}
 				if (game.locate [hash].GetType () == typeof(pit)&&pi) {
-					Console.WriteLine ("I feel a breeze...");
+					Console.WriteLine (Name+" feels a breeze...");
 					pi = false;
 				}
 			}
@@ -267,7 +267,7 @@ class user:square{
 					dr = false;
 				}
 				if (game.locate [hash].GetType () == typeof(pit)&&pi) {
-					Console.WriteLine ("I feel a breeze...");
+					Console.WriteLine (Name+" feels a breeze...");
 					pi = false;
 				}
 			}

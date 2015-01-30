@@ -54,7 +54,7 @@ class operations{
 		string help="Commands:\n"+
 			"F: Move forward\n"+
 			"L: Turn left\n"+
-			"R: TUrn right\n"+
+			"R: Turn right\n"+
 			"G: Grab gold\n"+
 			"A: Shoot arrow\n"+
 			"C: Climb out\n"+
